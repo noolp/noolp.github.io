@@ -1,0 +1,635 @@
+*{
+	list-style: none;
+	text-decoration: none;
+}
+body{
+	margin: 0;
+	padding: 0;
+	color: #2c3e50;
+	font: 14px sans-serif;
+	background: #000;
+	overflow: hidden;
+	transition: .5s;
+	cursor: url(cursor.png), none;
+
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'one';
+    src: url('one.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ubuntu';
+    src: url('Ubuntu-M.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/*главное меню*/
+#menu_box{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background: url(menu.jpg);
+	background-size: cover;
+	transition: 1s;
+	cursor: url(cursor.png), none;
+	z-index: 9999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+	transform-origin: 50% 20%;
+	animation: menus 2s;
+}
+@keyframes menus{
+	0%{
+		transform: scale(1.2);
+		opacity: 0;
+	}
+	100%{
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+@keyframes mey{
+	0%{
+		transform: scale(1);
+	}
+	50%{
+
+		transform: scale(1.1);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+@keyframes menustwo{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+a {
+	color: #3ac6ff;
+	transition: .4s;
+	cursor: url(cursor.png), none;
+}
+a:hover{
+	color: #fff;
+	cursor: url(cursor_2.png), none;
+}
+#menu_box_center{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#menu_logo{
+	cursor: url(cursor.png), none;
+	margin-bottom: 20px;
+	color: #c7b71e;
+	font: 100px one;
+	transition: .8s;
+	animation: back_res 10s infinite ease-in-out;
+}
+
+
+.button{
+	color: #eee;
+	font: 22px ubuntu;
+	transition: .4s;
+	user-select: none;
+	margin-bottom: 10px;
+	animation: menustwo 1s;
+}
+.button:last-child{
+	margin-bottom: 30%;
+}
+.button:hover{
+	color: #3ac6ff;
+	transform: scale(1.1);
+	cursor: url(cursor_2.png), none;
+}
+.button:active{
+	transition: 0s;
+	color: #fff;
+	cursor: url(cursor.png), none;
+}
+
+/*инфа*/
+#info_box{
+	display: none;
+	opacity: 0;
+	transition: .5s;
+	color: #eee;
+	font: 18px ubuntu;
+	user-select: none;
+	margin-bottom: 10px;
+}
+#back_to_menu{
+	color: #3ac6ff;
+	font: 22px ubuntu;
+	transition: .4s;
+	user-select: none;
+	margin-top: 10px;
+}
+#back_to_menu:hover{
+	color: #fff;
+	cursor: url(cursor_2.png), none;
+}
+#back_to_menu:active{
+	transition: 0s;
+	color: #fff;
+	cursor: url(cursor.png), none;
+}
+
+
+
+
+
+
+
+/*при поражении/выигрыше */
+#up_box{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background: url(up_box.jpg);
+	background-size: cover;
+	transition: 2s;
+	cursor: url(cursor.png), none;
+	z-index: 9999;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	transform: scale(1);
+	opacity: 0;
+}
+@keyframes back_res {
+	0%{
+		transform: scale(1);
+	}
+	50%{
+		transform: scale(1.1);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+
+#game_over{
+	/*animation: back_res 10s infinite ease-in-out;*/
+}
+#waves_logo{
+	width: 100%;
+	cursor: url(cursor.png), none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#in_wl{
+	margin-bottom: 20px;
+	color: #c7b71e;
+	font: 100px one;
+	animation: back_res 10s infinite ease-in-out;
+	user-select: none;
+}
+#game_id{
+	color: #c7b71e;
+	font: 32px ubuntu;
+	margin-bottom: 10px;
+	user-select: none;
+}
+#reload, #go_menu{
+	color: #fff;
+	font: 22px ubuntu;
+	transition: .4s;
+	user-select: none;
+}
+#reload:hover, #go_menu:hover{
+	color: #3ac6ff;
+	transform: scale(1.1);
+	cursor: url(cursor_2.png), none;
+}
+#reload:active,#go_menu:active{
+	transition: 0s;
+	color: #fff;
+	cursor: url(cursor.png), none;
+}
+#go_menu{
+	margin-bottom: 20%;
+}
+#box_stat{
+	color: #fff;
+	line-height: 30px;
+	font: 15px ubuntu;
+	user-select: none;
+	opacity: .8;
+	position: absolute;
+	margin: 100px 0 0 250px;
+}
+
+
+
+
+
+/*игра-------------*/
+#game{
+	display: flex;
+	transition: 1s;
+}
+
+.clich{
+	position: absolute;
+	margin: 30px;
+	background: #fff;
+	border-radius: 50%;
+	animation: click 1s ease-out;
+	
+}
+@keyframes click{
+	0%{
+		height: 0px;
+		width: 0px;
+		opacity: 1;
+		box-shadow: 0 0 0px 0 #fff;
+		background: rgba(255,255,255, 1);
+	}
+	50%{
+		transform: translate(-10px,-10px);
+		height: 20px;
+		width: 20px;
+		opacity:.5;
+		background: rgba(255,255,255, 0);
+		box-shadow: 0 0 0px 0 #fff;
+	}
+	100%{
+		height: 0px;
+		width: 0px;
+		opacity: 0;
+		box-shadow: 0 0 100px 20px #fff;
+	}
+}
+#back{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background: url(back.jpg);
+	background-size: cover;
+	opacity: .3;
+	transition: 2s;
+	animation: a 3s;
+	cursor: url(cursor.png), none;
+	transform: scale(1);
+	-webkit-user-select: none;
+    -moz-user-select: none;
+	user-select: none;
+}
+@keyframes a{
+	0%{
+		margin: -10% 0 0 -25%;
+		height: 150%;
+		width: 150%;
+		opacity: 0;
+	}
+	100%{
+		margin: 0;
+		height: 100%;
+		width: 100%;
+		opacity: .3;
+	}
+}
+
+#grad{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background: linear-gradient(to bottom, #121212, #4f1212);
+	opacity: 0;
+	transition: 1s;
+	cursor: url(cursor.png), none;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+	user-select: none;
+}
+
+
+
+
+
+
+
+
+
+/*счётчик*/
+#count_box{
+	position: absolute;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 2px;
+	cursor: url(cursor.png), none;
+	 -webkit-user-select: none;
+    -moz-user-select: none;
+	user-select: none;
+	pointer-events: none;
+
+	opacity: 0;
+	transition: 1s;
+	font-family: ubuntu;
+}
+#level_count{
+	color: #c7b71e;
+	font: 30px one;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	cursor: url(cursor.png), none;
+	transition: .6s;
+	margin-bottom: 12px;
+}
+#count{
+	color: #c5c5c5;
+	font-size: 16px;
+	user-select: none;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+	cursor: url(cursor.png), none;
+	transition: .6s;
+	margin-bottom: 5px;
+}
+#kill{
+	color: #c5c5c5;
+	font-size: 16px;
+	user-select: none;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+	cursor: url(cursor.png), none;
+	transition: .6s;
+	margin-bottom: 5px;
+}
+#time{
+	color: #fff;
+	font-size: 26px;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+	user-select: none;
+	cursor: url(cursor.png), none;
+	transition: .6s;
+	margin-bottom: 5px;
+
+}
+#timer_zone{
+	user-select: none;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+	cursor: url(cursor.png), none;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	opacity: 0;
+}
+@keyframes t_z{
+	0%{
+		height: 80%;
+		width: 80%;
+		opacity: 0;
+		filter: grayscale(1);
+	}
+	50%{
+		opacity: .2;
+		filter: grayscale(.8);
+	}
+	99%{
+		height: 100%;
+		width: 100%;
+		opacity: 1;
+		filter: grayscale(0);
+	}
+	100%{
+		opacity: 0;
+		filter: grayscale(1);
+	}
+}
+
+#timer_zone:before{
+	content: '';
+	width: 5px;
+	height: 100px;
+	background: #ff2626;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+#timer_zone:after{
+	content: '';
+	height: 5px;
+	width: 100px;
+	background: #ff2626;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+
+/*поймать*/
+#game_zone{
+	display: flex;
+}
+#go_box{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+	user-select: none;
+	pointer-events: none;
+}
+#gogogo{
+	position: absolute;
+	transition: 1s;
+	font-size: 30px;
+	color: #c7b71e;
+	opacity: 0;
+	user-select: none;
+	z-index: 9999;
+	animation: go 1s infinite ease;
+}
+#gogo{
+	position: absolute;
+	transition: 1s;
+	font-size: 30px;
+	color: #c7b71e;
+	opacity: 0;
+	user-select: none;
+	z-index: 9999;
+	animation: go 1s infinite ease;
+}
+@keyframes go{
+	0%{
+		margin-top: 0%;
+	}
+	50%{
+		margin-top: 0.2%;
+	}
+	100%{
+		margin-top: 0%;
+	}
+}
+
+#wave{
+	height: 100px;
+	width: 100px;
+	position: absolute;
+	background: radial-gradient(circle at -20% 10%, #6b35df, #37a269);
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: .7s;
+	user-select: none;
+	cursor: url(cursor_2.png), none;
+	z-index: 5;
+	opacity: 0;
+	box-shadow: 0 0 120px 0 #5e2cc9, inset -5px -5px 20px 0px #ffffff;
+	filter: blur(.5px);
+	animation: b 4s infinite ease-in-out;
+}
+@keyframes b{
+	0%{
+		transform: translateY(5px);
+	}
+	50%{
+		transform: translateY(-10px);
+	}
+	100%{
+		transform: translateY(5px);
+	}
+}
+#w_count{
+	color: #fff;
+	font-size: 25px;
+	transition: .3s;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+	user-select: none;
+}
+}
+.round{
+	padding: 0 40px;
+	z-index: 3;
+	position: absolute;
+	opacity: .5;
+	cursor: url(cursor.png), none;
+	transition: 1.5s;
+}
+.r1{
+	padding: 0 35px;
+	transition: 1.2s;
+}
+.r2{
+	padding: 0 30px;
+	transition: 1s;
+}
+
+.in_round{
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	background: #802eb6;
+	box-shadow: 0 0 50px 0 #802eb6,  inset 0px -5px 1px 0px #e883a9;
+	z-index: 4;
+	margin-top: -120px;
+	transform-origin: 10px 175px;
+	transform: rotate(180deg);
+	transition: 1s;
+	filter: blur(.5px);
+	cursor: url(cursor.png), none;
+}
+.ir1{
+	height: 30px;
+	width: 30px;
+	margin-top: -85px;
+	transform-origin: 15px 140px;
+	background: #d12771;
+	box-shadow: 0 0 30px 0 #d12771, inset 0px -5px 10px 0px #df5693;
+}
+
+.ir2{
+	height: 15px;
+	width: 15px;
+	margin-top: -45px;
+	transform-origin: 20px 97px;
+	background: #ae6f18;
+	box-shadow: 0 0 10px 0  #ae6f18;
+
+}
+#moon{
+	position: absolute;
+	height: 8px;
+	width: 8px;
+	border-radius: 50%;
+	margin-top: -15px;
+	background: #fff;
+	box-shadow: 0 0 20px 0  #fff;
+	transform-origin: 15px 25px;
+	transition: 1s;
+	filter: blur(.5px);
+	cursor: url(cursor.png), none;
+}
+
+#black_hole{
+	height: 60px;
+	width: 60px;
+	position: absolute;
+	background: rgba(255,255,255, 0);
+	border-radius: 50%;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	transition: 1s;
+	user-select: none;
+	cursor: url(cursor_2.png), none;
+	z-index: 5;
+	opacity: 0;
+	box-shadow: 0 0 120px 80px #000;
+	animation: b_h 1s infinite ease;
+}
+@keyframes b_h {
+	0%{
+		box-shadow: 0 0 100px 30px #000;
+	}
+	50%{
+		box-shadow: 0 0 200px 100px #000;
+	}
+	100%{
+		box-shadow: 0 0 100px 30px #000;
+	}
+}
+#bl_time{
+	color: #fff;
+	font-size: 18px;
+	transition: .3s;
+	opacity: .4;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+	user-select: none;
+}
+}
+
+
+
+
