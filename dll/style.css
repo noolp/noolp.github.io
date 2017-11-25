@@ -31,6 +31,12 @@ body{
     font-weight: normal;
     font-style: normal;
 }
+#google_translate_element{
+	position: absolute;
+	top:0;
+	right:0;
+	opacity: .5;
+}
 /*главное меню*/
 #menu_box{
 	height: 100%;
